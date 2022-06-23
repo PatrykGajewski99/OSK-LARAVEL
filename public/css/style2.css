@@ -29,7 +29,6 @@ img{max-width:100%;}
 /*end reset*/
 /****-----start-body----****/
 body{
-	background:url("../images/bg.jpg") no-repeat 0px 0px;
   background-size:cover;
   -o-background-size:cover;
   -moz-background-size:cover;
@@ -512,10 +511,7 @@ margin-top: 3px;
 .p-container .checkbox input + i:after {
   color: #2da5da;
 }
-.p-container .checkbox input:checked + i,
-.p-container . input:checked + i {
-  border-color: #2da5da;  
-}
+
 .p-container .rating input:checked ~ label {
   color: #2da5da; 
 }
@@ -626,7 +622,6 @@ form.sub input[type="password"] {
 }
 @media (max-width:1024px){
   body {
-  background: url("../images/bg.jpg") no-repeat 0px 0px;
   padding-bottom: 4em;
 }
  .sap_tabs {
@@ -676,7 +671,6 @@ form.sub input[type="password"] {
 }
 @media (max-width:480px){
   body {
-  background: url("../images/bg.jpg") no-repeat 0px 0px;
   padding-bottom: 4em;
 }
   .top-img img {
@@ -809,4 +803,5 @@ form.sub input[type="password"] {
 .main h1 {
   font-size: 1.45em;
   }
+}
 }

@@ -1,3 +1,19 @@
+<?php
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+$instructors=User::where('privilege','instructor')->get();
+$users=User::where('privilege','user')->get();
+$instructorsQuantity=0;
+$usersQuantity=0;
+foreach($instructors as $data)
+{
+	$instructorsQuantity++;
+}
+foreach($users as $data)
+{
+	$usersQuantity++;
+}
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -74,8 +90,8 @@
 			<div class="col-lg-9 col-md-10">
 				<div class="block">
 					<!-- <span class="d-block mb-3 text-white text-capitalize">DDG Ośrodek szkolenia kierowców</span> -->
-					<h1 class="animated fadeInUp mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit </h1>
-					<a href="#" target="_blank" class="btn btn-main animated fadeInUp btn-round-full" >Sprawdź najbliższe terminy<i class="btn-icon fa fa-angle-right ml-2"></i></a>
+					<h1 class="animated fadeInUp mb-5">Najlepsza szkoła nauki jazdy w Twoim mieście </h1>
+					<a href="{{ url('price') }}" class="btn btn-main animated fadeInUp btn-round-full" >Sprawdź nasze ceny<i class="btn-icon fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
 		</div>
@@ -99,7 +115,7 @@
 				<div class="service-item mb-5">
 					<i class="fa fa-motorcycle" aria-hidden="true"></i>
 					<h4 class="mb-3">Kat. A</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+					<p>Kurs składa się z 30h zajęć teoretycznych i 20h zajęć praktycznych.</p>
 				</div>
 			</div>
 
@@ -107,7 +123,7 @@
 				<div class="service-item mb-5">
 					<i class="fa fa-car" aria-hidden="true"></i>
 					<h4 class="mb-3">Kat. B</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+					<p>Kurs składa się z 30h zajęć teoretycznych i 30h zajęć paraktyczych.</p>
 				</div>
 			</div>
 
@@ -115,7 +131,7 @@
 				<div class="service-item mb-5">
 					<i class="fa fa-truck" aria-hidden="true"></i>
 					<h4 class="mb-3">Kat. C</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+					<p>Krus składa się z 20h zajeć teoretycznych oraz 30h zajęć partycznych.</p>
 				</div>
 			</div>
 
@@ -131,15 +147,15 @@
 				<div class="service-item mb-5 mb-lg-0">
 					<i class="fa fa-bus" aria-hidden="true"></i>
 					<h4 class="mb-3">Kat D.</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+					<p>Kurs składa się z 20h zajęć teoretycznych oraz 60h zajęć praktycznych.</p>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-item mb-5 mb-lg-0">
 					<i class="fa fa-plus" aria-hidden="true"></i>
-					<h4 class="mb-3">Kat. E</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+					<h4 class="mb-3">Kat. B/C+E</h4>
+					<p>Krus oferuję możliwość poruszania pojazdem z przczepą. </p>
 				</div>
 			</div>
 		</div>
@@ -163,21 +179,21 @@
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
 					<i class="ti-flag color-one text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">1245 </span> </h3>
+					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">{{$usersQuantity}}</span> </h3>
 					<p class="text-white-50">Wyszkolonych kursantów</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="counter-item text-center mb-5 mb-lg-0">
 					<i class="fa fa-child color-one text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">8</span></h3>
+					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">{{$instructorsQuantity}}</span></h3>
 					<p class="text-white-50">Doświadczonych instruktorów</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="counter-item text-center">
 					<i class="ti-car color-one  text-md"></i>
-					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">14</span></h3>
+					<h3 class="mt-2 mb-0 text-white"><span class="counter-stat font-weight-bold">{{$instructorsQuantity+3}}</span></h3>
 					<p class="text-white-50">Pojazdów </p>
 				</div>
 			</div>
@@ -198,11 +214,11 @@
 			<div class="col-lg-6 col-md-6">
 				<div class="about-item pr-3 mb-5 mb-lg-0">
 					<span class="h6 text-color">O nas</span>
-					<h2 class="mt-3 mb-4 position-relative content-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-					<h4 class="mb-3 position-relative">Lorem ipsum dolor sit amet</h4>
-					<p class="mb-5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+					<h2 class="mt-3 mb-4 position-relative content-title">ProjectOSK</h2>
+					<h4 class="mb-3 position-relative">Jesteśmy najlepsi w swojej dziedzinie ...</h4>
+					<p class="mb-5">Nasze wyniki zawdzięczamy wykwalifikowanej kadrze szkoleniowej i indywidualnym podejściu do każdego kursanta. Zostań kierowcą razem z nami!</p>
 
-					<a href="#" class="btn btn-main btn-round-full">Kontakt</a>
+					<a href="{{ url('contact') }}" class="btn btn-main btn-round-full">Kontakt</a>
 				</div>
 			</div>
 			
@@ -218,8 +234,9 @@
 			<div class="col-lg-6 col-md-6">
 				<div class="about-item pr-3 mb-5 mb-lg-0">
 					<span class="h6 text-color">Aktualności</span>
-					<h2 class="mt-3 mb-4 position-relative content-title">Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<p class="mb-5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+					<h2 class="mt-3 mb-4 position-relative content-title">Nadchodzące kursy i wydarzenia</h2>
+					<p class="mb-5">W dniu 02.02.2022 rozpoczynamy kurs z kategorii B. W celu uzyskania większej ilości informacji zapraszamy do kontaktu telefonicznego lub formularza kontaktowego(zakładka kontakt).</p>
+					<p class="mb-5">W dniu 05.02.2022 rozpoczynamy kurs doszkalający z zakresu wyprowadzania aut przednionapędowych z poślizgu. W celu uzyskania większej ilości informacji zapraszamy do kontaktu telefonicznego lub formularza kontaktowego(zakładka kontakt).</p>
 
 					<!-- <a href="#" class="btn btn-main btn-round-full">Get started</a> -->
 				</div>
@@ -239,29 +256,30 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Company</h4>
+					<h4 class="text-color3 mb-4">ProjectOSK</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li class="footer-contact"><i class="fa fa-home"></i> Address name</li>
-						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> mail@gmail.com</a></li>
-						<li class="footer-contact"><i class="fa fa-phone"></i> 789987789</li>
+						<li class="footer-contact"><i class="fa fa-home"></i> Lipowa 17 20-400 Lublin</li>
+						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="{{ url('contact') }}" class="text-color3"> oskddg@gmail.com</a></li>
+						<li class="footer-contact"><i class="fa fa-phone"></i> 789-987-789</li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
+					<h4 class="text-color3 mb-4">Dołącz</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#" class="text-color3">Kontakt</a></li>
-						<li><a href="#" class="text-color3">Zaloguj się</a></li>
+					<li><a href="{{ url('login') }}" class="text-color3">Zaloguj się</a></li>
+						<li><a href="{{ url('contact') }}" class="text-color3">Kontakt</a></li>
+						<li><a href="{{ url('price') }}" class="text-color3">Cennik</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
-					<p>Subscribe to get latest news article and resources  </p>
+					<h4 class="text-color3 mb-4">Osiągnięcia</h4>
+					<p>Ośrodek szkolenia kierowców OSKDDG w latach 2019-2021 zdobył tytuł najlepszego ośrodka w województwie Lubelskim.</p>
 				</div>
 			</div>
 
@@ -270,8 +288,8 @@
 					<div class="logo mb-4">
 						<h3 class="text-color3">OSK<span>DDG.</span></h3>
 					</div>
-					<h6><a href="mailto:support@gmail.com" class="text-color3">Support@megakit.com</a></h6>
-					<a href="tel:+23-345-67890 "><span class="text-color h4">789987789</span></a>
+					<h6><a href="mailto:inzynierkaoskddg@gmail.com" class="text-color3">oskddg@gmail.com</a></h6>
+					<a href="tel:789-987-789 "><span class="text-color h4">789-987-789</span></a>
 				</div>
 			</div>
 		</div>

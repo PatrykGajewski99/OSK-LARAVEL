@@ -49,7 +49,7 @@
 			@if (Route::has('login'))
 			@auth
 			<form class="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
-				<a href="{{ url('/dashboard') }}" class="btn btn-solid-border btn-round-full">Moje konto</a>
+				<a href="{{ url('/login') }}" class="btn btn-solid-border btn-round-full">Moje konto</a>
 			</form>
 		
 			@else
@@ -92,9 +92,24 @@
 						<small class="text-muted">/godz.</small>
 					</h1>
 					<p class="lead">
-						The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+						Godzina jazd doszkalających to pełne 60 min jazdy z instruktorem. Cena podana jest dla 1h z kategorii B.
 					</p>
-					<button type="button" class="btn btn-lg btn-block btn-outline-dark">Więcej informacji</button>
+					
+				</div>
+			</div>
+		</div>
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-8 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Kurs</h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">2200 zł
+						<small class="text-muted">/Kat. A</small>
+					</h1>
+					<p class="lead">
+					Kurs składa się z 30h zajęć teoretycznych i 20h zajęć praktycznych prowadzonych na identycznych motocyklach jak na prawdziwym egzaminie. Minimalny wiek to 24 lata bez posiadania ubarwień: AM, A1, A2. W czasie tego kursu uzyskasz najważniejsze informacje i doświadczenie pozwalające zdać egzamin i czerpać radość z jazdy motocyklem.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -105,15 +120,45 @@
 				</div>
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">2100 zł
-						<small class="text-muted">/Kat. b</small>
+						<small class="text-muted">/Kat.B</small>
 					</h1>
 					<p class="lead">
-						Na kurs składa się 30 godzin teorii prowadzonej stacjonarnie oraz 20 godzin praktyki na identycznych samochodach jak na prawdziwym egazminie. W czasie tego kursu uzyskasz najważniesze informacje i doświadczenie pozwalające zdać egzamin i czerpać radość z jazdy samochodem.
+					Kurs składa się z 30h zajęć teoretycznych i 30h zajęć praktycznych prowadzonych na identycznych samochodach jak na prawdziwym egzaminie. W czasie tego kursu uzyskasz najważniejsze informacje i doświadczenie pozwalające zdać egzamin i czerpać radość z jazdy samochodem.
 					</p>
-					<button type="button" class="btn btn-lg btn-block btn-outline-dark">Więcej informacji</button>
 				</div>
 			</div>
 		</div>
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-8 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Kurs</h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">2500 zł
+						<small class="text-muted">/Kat.C</small>
+					</h1>
+					<p class="lead">
+						Na kurs składa się 20 godzin teorii prowadzonej stacjonarnie oraz 30 godzin praktyki na identycznych samochodach ciężarowych jak na prawdziwym egazminie. W czasie tego kursu uzyskasz najważniesze informacje i doświadczenie pozwalające zdać egzamin i czerpać radość z jazdy.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="card-deck mb-3 text-center">
+			<div class="card mb-8 box-shadow">
+				<div class="card-header">
+					<h4 class="my-0 font-weight-normal">Kurs</h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">4400 zł
+						<small class="text-muted">/Kat.D</small>
+					</h1>
+					<p class="lead">
+						Na kurs składa się 20 godzin teorii prowadzonej stacjonarnie oraz 60 godzin praktyki na identycznych samochodach jak na prawdziwym egazminie. W czasie tego kursu uzyskasz najważniesze informacje i doświadczenie pozwalające zdać egzamin i czerpać radość z jazdy.
+					</p>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 
 </section>
@@ -122,34 +167,35 @@
 
 
 <!-- Footer -->
-<footer class="footer section bg-footer">
+<footer class="footer section2 bg-footer">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Company</h4>
+					<h4 class="text-color3 mb-4">ProjectOSK</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li class="footer-contact"><i class="fa fa-home"></i> Address name</li>
-						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> mail@gmail.com</a></li>
-						<li class="footer-contact"><i class="fa fa-phone"></i> 789987789</li>
+						<li class="footer-contact"><i class="fa fa-home"></i> Lipowa 17 20-400 Lublin</li>
+						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="{{ url('contact') }}" class="text-color3"> oskddg@gmail.com</a></li>
+						<li class="footer-contact"><i class="fa fa-phone"></i> 789-987-789</li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
+					<h4 class="text-color3 mb-4">Dołącz</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#" class="text-color3">Kontakt</a></li>
-						<li><a href="#" class="text-color3">Zaloguj się</a></li>
+					<li><a href="{{ url('login') }}" class="text-color3">Zaloguj się</a></li>
+						<li><a href="{{ url('contact') }}" class="text-color3">Kontakt</a></li>
+						<li><a href="{{ url('price') }}" class="text-color3">Cennik</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
-					<p>Subscribe to get latest news article and resources  </p>
+					<h4 class="text-color3 mb-4">Osiągnięcia</h4>
+					<p>Ośrodek szkolenia kierowców OSKDDG w latach 2019-2021 zdobył tytuł najlepszego ośrodka w województwie Lubelskim.</p>
 				</div>
 			</div>
 
@@ -158,8 +204,8 @@
 					<div class="logo mb-4">
 						<h3 class="text-color3">OSK<span>DDG.</span></h3>
 					</div>
-					<h6><a href="mailto:support@gmail.com" class="text-color3">Support@megakit.com</a></h6>
-					<a href="tel:+23-345-67890 "><span class="text-color h4">789987789</span></a>
+					<h6><a href="mailto:inzynierkaoskddg@gmail.com" class="text-color3">oskddg@gmail.com</a></h6>
+					<a href="tel:789-987-789 "><span class="text-color h4">789-987-789</span></a>
 				</div>
 			</div>
 		</div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class ResetPasswordController extends Controller
 {
     /*
@@ -22,9 +22,14 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
-     * Where to redirect users after resetting their password.
+     * Get the response for a successful password reset.
      *
-     * @var string
+     * @param  string  $response
+     * @return \Illuminate\Http\Response
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function sendResetResponse($response)
+    {
+        Alert::success('Sukces', 'Hasło zostało zrestartowane prawidłowo');
+        return redirect()->back();
+    }
 }

@@ -33,11 +33,11 @@
                             <div class="col-md-6">
                                 <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
 
-                                @error('firstName')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('firstName')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -46,11 +46,11 @@
                             <div class="col-md-6">
                                 <input id="secondName" type="text" class="form-control @error('secondName') is-invalid @enderror" name="secondName" value="{{ old('secondName') }}" autocomplete="secondName" autofocus>
 
-                                @error('secondName')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('secondName')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -59,11 +59,11 @@
                             <div class="col-md-6">
                                 <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
 
-                                @error('lastName')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('lastName')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -72,11 +72,11 @@
                             <div class="col-md-6">
                                 <input id="province" type="text" class="form-control @error('province') is-invalid @enderror" name="province" value="{{ old('province') }}" required autocomplete="province" autofocus>
 
-                                @error('province')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('province')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -85,11 +85,11 @@
                             <div class="col-md-6">
                                 <input id="town" type="text" class="form-control @error('town') is-invalid @enderror" name="town" value="{{ old('town') }}" required autocomplete="town" autofocus>
 
-                                @error('town')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('town')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -98,11 +98,11 @@
                             <div class="col-md-6">
                                 <input id="postCode" type="text" class="form-control @error('postCode') is-invalid @enderror" placeholder="xx-xxx" name="postCode" value="{{ old('postCode') }}" required autocomplete="postCode" autofocus>
 
-                                @error('postCode')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('postCode')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         
@@ -112,11 +112,11 @@
                             <div class="col-md-6">
                                 <input id="street" type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}" required autocomplete="street" autofocus>
 
-                                @error('street')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('street')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -125,11 +125,11 @@
                             <div class="col-md-6">
                                 <input id="houseNumber" type="text" class="form-control @error('houseNumber') is-invalid @enderror" name="houseNumber" value="{{ old('houseNumber') }}" required autocomplete="houseNumber" autofocus>
 
-                                @error('houseNumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('houseNumber')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -138,11 +138,11 @@
                             <div class="col-md-6">
                                 <input id="flatNumber" type="text" class="form-control @error('flatNumber') is-invalid @enderror" name="flatNumber" value="{{ old('flatNumber') }}" autocomplete="flatNumber" autofocus>
 
-                                @error('flatNumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('flatNumber')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -151,11 +151,11 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@gmail.com" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -164,11 +164,11 @@
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="xxx-xxx-xxx" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('phone')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -177,11 +177,11 @@
                             <div class="col-md-6">
                                 <input id="pesel" type="text" class="form-control @error('pesel') is-invalid @enderror" name="pesel" value="{{ old('pesel') }}" required autocomplete="pesel" autofocus>
 
-                                @error('pesel')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('pesel')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -190,11 +190,11 @@
                             <div class="col-md-6">
                                 <input id="pkkNumber" type="text" class="form-control @error('pkkNumber') is-invalid @enderror" placeholder="Wpisujemy w przypadku rejestracji kandydata" name="pkkNumber" value="{{ old('pkkNumber') }}"  autocomplete="pkkNumber" autofocus>
 
-                                @error('pkkNumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('pkkNumber')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -203,11 +203,11 @@
                             <div class="col-md-6">
                                 <input id="licenceNumber" type="text" class="form-control @error('licenceNumber') is-invalid @enderror" placeholder="Wpisujemy w przypadku rejestracji instruktora" name="licenceNumber" value="{{ old('licenceNumber') }}" autocomplete="licenceNumber" autofocus>
 
-                                @error('licenceNumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('licenceNumber')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
 
@@ -217,11 +217,11 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span style="color:red;font-size:12px;">
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
 

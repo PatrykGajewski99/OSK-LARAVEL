@@ -1,5 +1,4 @@
 @section('content')
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,7 +51,7 @@
             @if (Route::has('login'))
                     @auth
                     <form class="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
-                        <a href="{{ url('/dashboard') }}" class="btn btn-solid-border btn-round-full">Moje konto</a>
+                        <a href="{{ url('/login') }}" class="btn btn-solid-border btn-round-full">Moje konto</a>
                     </form>
                     @else
                     <form class="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
@@ -81,7 +80,7 @@
           <ul class="list-inline">
             <li class="list-inline-item"><a href="{{ url('welcome') }}" class="text-white">Strona Główna</a></li>
             <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Kontakt</a></li>
+            <li class="list-inline-item"><a href="{{ url('contact') }}" class="text-white-50">Kontakt</a></li>
           </ul>
         </div>
       </div>
@@ -93,7 +92,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12">
-                 <form id="contact-form" class="contact__form" method="post" action="mail.php">
+                 <form  method="POST" action="{{ route('sendUserEmail') }}" >
+                 @csrf
                  <!-- form message -->
                     <div class="row">
                         <div class="col-12">
@@ -105,13 +105,13 @@
                     <!-- end message -->
                     <h3 class="text-md mb-4">Formularz Kontaktowy</h3>
                     <div class="form-group">
-                        <input name="name" type="text" class="form-control" placeholder="Imię i Nazwisko">
+                        <input name="personalData" id="personalData" type="text" class="form-control" placeholder="Imię i Nazwisko">
                     </div>
                     <div class="form-group">
-                        <input name="email" type="email" class="form-control" placeholder="Adres Email">
+                        <input name="email"  id="email" type="email" class="form-control" placeholder="Adres Email">
                     </div>
                     <div class="form-group-2 mb-4">
-                        <textarea name="message" class="form-control" rows="4" placeholder="Wiadomość"></textarea>
+                        <textarea name="message" id="message" class="form-control" placeholder="Wiadomość"></textarea>
                     </div>
                     <button class="btn btn-main" name="submit" type="submit">Wyślij wiadomość</button>
                 </form>
@@ -119,27 +119,26 @@
 
             <div class="col-lg-5 col-sm-12">
                 <div class="contact-content pl-lg-5 mt-5 mt-lg-0">
-                    <span class="text-muted">We are Professionals</span>
-                    <h2 class="mb-5 mt-2">Don’t Hesitate to contact with us for any kind of information</h2>
+                    <span class="text-muted">Zaufaj nam. Jesteśmy profesjonalistami.</span>
+                    <h2 class="mb-5 mt-2">Najważniejsze informacje na temat ośrodka szkolenia.</h2>
 
                     <ul class="address-block list-unstyled">
-                        <li>
-                            <i class="ti-direction mr-3"></i>Biuro: Lorem ipsum dolor sit amet
-                        </li>
 						<li>
-                            <i class="ti-pin-alt mr-3"></i>Adres: Lorem ipsum dolor sit amet
+                            <i class="ti-pin-alt mr-3"></i><b>Adres:</b> Spadochroniarzy 17 20-400 Lublin
                         </li>
                         <li>
-                            <i class="ti-email mr-3"></i>Email: Lorem ipsum dolor sit amet
+                            <i class="ti-email mr-3"></i><b>Email:</b> oskddg@gmail.com
                         </li>
                         <li>
-                            <i class="ti-mobile mr-3"></i>Telefon: Lorem ipsum dolor sit amet
+                            <i class="ti-mobile mr-3"></i><b>Telefon:</b> 789-987-789
                         </li>
 						<li>
-                            <i class="ti-timer mr-3"></i>Godziny otwarcia: Lorem ipsum dolor sit amet
+                            <i class="ti-timer mr-3"></i><b>Godziny otwarcia</b><br>
+                            Dni powszednie: 8:00 - 19:00 <br>
+                            Sobota: 8:00-12:00
                         </li>
 						<li>
-                            <i class="ti-car mr-3"></i>Plac Manewrowy: Lorem ipsum dolor sit amet
+                            <i class="ti-car mr-3"></i><b>Plac Manewrowy:</b> Lipowa 217 20-400 Lublin
                         </li>
                     </ul>
 
@@ -154,35 +153,36 @@
 </div>
 
 
-
-<footer class="footer section bg-footer">
+<!-- Footer -->
+<footer class="footer section2 bg-footer">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Company</h4>
+					<h4 class="text-color3 mb-4">ProjectOSK</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li class="footer-contact"><i class="fa fa-home"></i> Address name</li>
-						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> mail@gmail.com</a></li>
-						<li class="footer-contact"><i class="fa fa-phone"></i> 789987789</li>
+						<li class="footer-contact"><i class="fa fa-home"></i> Lipowa 17 20-400 Lublin</li>
+						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> oskddg@gmail.com</a></li>
+						<li class="footer-contact"><i class="fa fa-phone"></i> 789-987-789</li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
+					<h4 class="text-color3 mb-4">Dołącz</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#" class="text-color3">Kontakt</a></li>
-						<li><a href="#" class="text-color3">Zaloguj się</a></li>
+					<li><a href="{{ url('login') }}" class="text-color3">Zaloguj się</a></li>
+						<li><a href="{{ url('contact') }}" class="text-color3">Kontakt</a></li>
+						<li><a href="{{ url('price') }}" class="text-color3">Cennik</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
-					<p>Subscribe to get latest news article and resources  </p>
+					<h4 class="text-color3 mb-4">Osiągnięcia</h4>
+					<p>Ośrodek szkolenia kierowców OSKDDG w latach 2019-2021 zdobył tytuł najlepszego ośrodka w województwie Lubelskim.</p>
 				</div>
 			</div>
 
@@ -191,8 +191,8 @@
 					<div class="logo mb-4">
 						<h3 class="text-color3">OSK<span>DDG.</span></h3>
 					</div>
-					<h6><a href="mailto:support@gmail.com" class="text-color3">Support@megakit.com</a></h6>
-					<a href="tel:+23-345-67890 "><span class="text-color h4">789987789</span></a>
+					<h6><a href="mailto:inzynierkaoskddg@gmail.com" class="text-color3">oskddg@gmail.com</a></h6>
+					<a href="tel:789-987-789"><span class="text-color h4">789-987-789</span></a>
 				</div>
 			</div>
 		</div>
@@ -223,7 +223,7 @@
     
     <!-- Main jQuery -->
     <script src="plugins/jquery/jquery.js"></script>
-    <script src="js/contact.js"></script>
+    <!-- <script src="js/contact.js"></script> -->
     <!-- Bootstrap 4.3.1 -->
     <script src="plugins/bootstrap/js/popper.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>

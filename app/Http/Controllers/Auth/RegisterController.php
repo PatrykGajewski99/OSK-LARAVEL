@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
     /*
@@ -44,7 +46,7 @@ class RegisterController extends Controller
 
     public function __construct()
     {
-         $this->middleware('\App\Http\Middleware\PrivilegeAdmin::class');
+        //  $this->middleware('\App\Http\Middleware\PrivilegeAdmin::class');
     }
 
     /**
@@ -57,16 +59,20 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'privilege'=>['required','string'],
-            'firstName' => ['required', 'string', 'max:255'],
-            'lastName' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'town' => ['required', 'string', 'max:255'],
-            'postCode' => ['required', 'string', 'min:6'],
-            'street' => ['required', 'string', 'max:255'],
-            'houseNumber' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'min:9'],
-            'pesel' => ['required', 'string', 'min:11','unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'firstName' => 'required|string|max:255',
+            'secondName' => 'nullable|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'town' => 'required|string|max:255',
+            'street' => 'required|string|max:255',
+            'houseNumber' => 'required|string|max:255',
+            'flatNumber' => 'nullable|string|max:255',
+            'postCode' => 'required|string|min:6|max:6',
+            'phone' => 'required|string|min:9|max:11',
+            'pesel' => 'required|string|min:11|max:11|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'pkkNumber' => 'nullable|string|min:20|max:24|unique:users',
+            'licenceNumber' => 'nullable|string|min:6|max:255|unique:users',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -97,6 +103,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $maildetails=[
+            'firstName'=>$user->firstName,
+            'lastName'=>$user->lastName,
+            'login'=>$user->email,
+            'password'=>$data['password'],
+        ];
+        Mail::to($user->email)->send(new WelcomeMail($maildetails));
         return $user;
 
     }

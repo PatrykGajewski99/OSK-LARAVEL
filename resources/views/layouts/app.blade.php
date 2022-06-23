@@ -36,7 +36,7 @@
 <body>
     <div id="app">
         @include('sweetalert::alert')
-        <nav class="navbar navbar-expand-lg  py-4" id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark  py-4" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/welcome') }}">
                 OSK<span>DDG.</span>
@@ -79,41 +79,20 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                <!-- DODAJ UŻYTKOWNIKA -->
-
-                                @if (Auth::user()->privilege=='admin')
-                                    <a class="dropdown-item" href="{{ route('register') }}"
+                                     <!-- STRONA GŁÓWNA: -->
+                                 <a class="dropdown-item changenavbg" href="{{ route('mainpage') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('register').submit();">
-                                        {{ __('Dodaj użytkownika') }}
+                                                     document.getElementById('mainpage').submit();">
+                                        {{ __('Strona główna') }}
                                     </a>
 
-                                    <form id="register" action="{{ route('register') }}" method="GET" class="d-none">
+                                    <form id="mainpage" action="{{ route('mainpage') }}" method="GET" class="d-none">
                                         @csrf
                                     </form>
+                                    <!-- KONIEC STRONY GŁÓWNEJ-->
+                                     <!-- ZMIANA HASLA - MOJE KONTO: -->
 
-                                        <!-- KONIEC DODAJ UŻYTKOWNIKA -->
-
-                                        <!-- WYSWIETL UZYTKOWNIKOW -->
-
-                                    <a class="dropdown-item" href="{{ route('allusers') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('allusers').submit();">
-                                        {{ __('Użytkownicy') }}
-                                    </a>
-
-                                    <form id="allusers" action="{{ route('allusers') }}" method="GET" class="d-none">
-                                        @csrf
-                                    </form>
-                                @endif
-
-                                    <!-- KONIEC WYSWIETLANIA UZYTKOWNIKOW -->
-                                
-
-                                <!-- ZMIANA HASLA - MOJE KONTO: -->
-
-                                <a class="dropdown-item" href="{{ route('data') }}"
+                                <a class="dropdown-item changenavbg" href="{{ route('data') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('data').submit();">
                                         {{ __('Moje konto') }}
@@ -124,12 +103,142 @@
                                 </form>
 
                                 <!-- KONIEC ZMIANY HASLA - MOJE KONTO: -->
+                                
+<!-------------------------------------OPCJE ADMINA---------------------------------------->
+                                
+                                @if (Auth::user()->privilege=='admin')
+                                <!-- DODAJ UŻYTKOWNIKA -->
+                                    <a class="dropdown-item changenavbg" href="{{ route('register') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('register').submit();">
+                                        {{ __('Dodaj użytkownika') }}
+                                    </a>
+
+                                    <form id="register" action="{{ route('register') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+
+                                <!-- KONIEC DODAJ UŻYTKOWNIKA -->
+
+                                <!-- WYSWIETL UZYTKOWNIKOW -->
+
+                                    <a class="dropdown-item changenavbg" href="{{ route('allusers') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('allusers').submit();">
+                                        {{ __('Użytkownicy') }}
+                                    </a>
+
+                                    <form id="allusers" action="{{ route('allusers') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                <!-- KONIEC WYSWIETLANIA UZYTKOWNIKOW -->
+
+
+
+                                 <!-- TESTY TEORETYCZNE: -->
+                                 <a class="dropdown-item changenavbg" href="{{ route('theoreticaltests') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('theoreticaltests').submit();">
+                                        {{ __('Testy teoretyczne') }}
+                                    </a>
+
+                                    <form id="theoreticaltests" action="{{ route('theoreticaltests') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                <!-- KONIEC TESTY TEORETYCZNE: -->
+                                
+                                @endif
+
+<!-------------------------------------KONIEC OPCJI ADMINA---------------------------------------->
+
+<!-------------------------------------OPCJE INSTRUKTORA---------------------------------------->
+
+                                        <!-- WYSWIETLANIE OPCJI DODANIA TERMINOW -->
+                                @if (Auth::user()->privilege=='instructor')
+                                <a class="dropdown-item changenavbg" href="{{ route('newlesson') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('newlesson').submit();">
+                                        {{ __('Dodaj termin jazd') }}
+                                    </a>
+
+                                    <form id="newlesson" action="{{ route('newlesson') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <!-- KONIEC WYSWIETLANIA OPCJI DODANIA TERMINOW -->
+
+                                    <!-- WYSWIETLANIE DODANYCH TERMINOW -->
+                                <a class="dropdown-item changenavbg" href="{{ route('showlesson') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('showlesson').submit();">
+                                        {{ __('Wyświetl dodane terminy') }}
+                                    </a>
+
+                                    <form id="showlesson" action="{{ route('showlesson') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                     <!-- KONIEC WYSWIETLANIA DODANYCH TERMINOW -->
+
+                                    <!-- WYSWIETLANIE ZAREZERWOWANYCH TERMINOW -->
+                                    <a class="dropdown-item changenavbg" href="{{ route('bookedlesson') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('bookedlesson').submit();">
+                                        {{ __('Zarezerwowane terminy') }}
+                                    </a>
+
+                                    <form id="bookedlesson" action="{{ route('bookedlesson') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <!-- KONIEC WYSWIETLANIA ZAREZERWOWANYCH TERMINOW -->
+                                @endif
+<!-------------------------------------KONIEC OPCJI INSTRUKTORA---------------------------------------->
+
+<!-------------------------------------OPCJE UŻYTKOWNIKA---------------------------------------->
+                                @if (Auth::user()->privilege=='user')
+                                <!-- WYSWIETLENIE JAZD - JAZDY: -->
+                                <a class="dropdown-item changenavbg" href="{{ route('actualLessons') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('actualLessons').submit();">
+                                        {{ __('Aktualne terminy jazd') }}
+                                    </a>
+
+                                    <form id="actualLessons" action="{{ route('actualLessons') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <!-- KONIEC WYSWIETLENIA JAZD - JAZDY -->
+                                    <!-- WYSWIETLENIE ZAPISANYCH JAZD USERA - JAZDY: -->
+                                <a class="dropdown-item changenavbg" href="{{ route('userLessons') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('userLessons').submit();">
+                                        {{ __('Zarezerwowane jazdy') }}
+                                    </a>
+
+                                    <form id="userLessons" action="{{ route('userLessons') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <!-- KONIEC WYSWIETLENIA ZAPISANYCH JAZD JAZD - JAZDY -->
+
+                                      <!-- TESTY TEORETYCZNE: -->
+                                <a class="dropdown-item changenavbg" href="{{ route('choosecategory') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('choosecategory').submit();">
+                                        {{ __('Testy teoretyczne') }}
+                                    </a>
+
+                                    <form id="choosecategory" action="{{ route('choosecategory') }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <!-- KONIEC TESTY TEORETYCZNE -->
+                                @endif
+
+<!-------------------------------------KONIEC OPCJI UŻYTKOWNIKA---------------------------------------->
+
+                               
 
 
 
                                 <!-- WYLOGUJ SIĘ -->
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item changenavbg" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Wyloguj się') }}
@@ -173,29 +282,30 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Company</h4>
+                <h4 class="text-color3 mb-4">ProjectOSK</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li class="footer-contact"><i class="fa fa-home"></i> Address name</li>
-						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> mail@gmail.com</a></li>
-						<li class="footer-contact"><i class="fa fa-phone"></i> 789987789</li>
+						<li class="footer-contact"><i class="fa fa-home"></i> Lipowa 17 20-400 Lublin</li>
+						<li class="footer-contact"><i class="fa fa-envelope"></i><a href="#" class="text-color3"> oskddg@gmail.com</a></li>
+						<li class="footer-contact"><i class="fa fa-phone"></i> 789-987-789</li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-6 col-sm-6">
-				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
+                 <div class="widget">
+					<h4 class="text-color3 mb-4">Dołącz</h4>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#" class="text-color3">Kontakt</a></li>
-						<li><a href="#" class="text-color3">Zaloguj się</a></li>
+					<li><a href="{{ url('login') }}" class="text-color3">Zaloguj się</a></li>
+						<li><a href="{{ url('contact') }}" class="text-color3">Kontakt</a></li>
+						<li><a href="{{ url('price') }}" class="text-color3">Cennik</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget">
-					<h4 class="text-color3 mb-4">Lorem ipsum</h4>
-					<p>Subscribe to get latest news article and resources  </p>
+					<h4 class="text-color3 mb-4">Osiągnięcia</h4>
+					<p>Ośrodek szkolenia kierowców OSKDDG w latach 2019-2021 zdobył tytuł najlepszego ośrodka w województwie Mazowieckim.</p>
 				</div>
 			</div>
 
@@ -204,8 +314,8 @@
 					<div class="logo mb-4">
 						<h3 class="text-color3">OSK<span>DDG.</span></h3>
 					</div>
-					<h6><a href="mailto:support@gmail.com" class="text-color3">Support@megakit.com</a></h6>
-					<a href="tel:+23-345-67890 "><span class="text-color h4">789987789</span></a>
+					<h6><a href="mailto:inzynierkaoskddg@gmail.com" class="text-color3">oskddg@gmail.com</a></h6>
+					<a href="tel:789-987-789 "><span class="text-color h4">789-987-789</span></a>
 				</div>
 			</div>
 		</div>
