@@ -1,4 +1,4 @@
-Hello everyone. OSKDDG was my first application witch was created step by step with using Bootstrap, PHP and Laravel framework. I wrote description below, how to start this application.
+Hello everyone. OSKDDG is application witch was created step by step with using Bootstrap, PHP and Laravel framework. I wrote description below, how to start this application.
 
 1. You should create "projectosk" database in phpmyadmin
 2. Upload this .sql code -> 
