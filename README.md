@@ -5,7 +5,7 @@ I wrote a description below, of how to start this application.
 
 2.You should create "projectosk" database in PHPMyAdmin
 
-3.Upload this .sql code -> projectosk (3).zip
+3.Upload this .sql code -> https://github.com/PatrykGajewski99/OSK-LARAVEL/files/8994449/projectosk.3.zip
 
 4.Open the project in PhpStorm / Visual Studio Code etc
 
